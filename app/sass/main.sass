@@ -1,0 +1,471 @@
+//обнуление
+@import 'nullstyle.css'
+//--------------------
+
+//mixin
+@mixin design-color
+    color: #00e0d0
+//--------------------
+body 
+    font-family: 'Roboto', sans-serif
+
+.container
+    max-width: 940px
+    margin: 0 auto
+    // @media (min-width: 768px) and (max-width: 991px)
+    //     max-width: 767px
+    // @media (max-width: 767px)
+    //     min-width: 480px
+    // @media (max-width: 480px)
+    //     min-width: none
+.title
+    font-family: 'Playfair Display', serif
+    font-weight: bold
+    text-transform: uppercase
+    font-size: 22px
+    text-align: center
+    position: relative
+    &_white
+        color: #fff  
+
+.subtitle
+    font-size: 14px
+    font-weight: 300
+    line-height: 1.5em
+    text-align: center
+    &_white 
+        color: #fff
+    &_playfair
+        font-family: 'Playfair Display', serif
+
+.header__text
+    padding: 5% 0  
+
+.logo
+    display: flex
+    &__text 
+        font-size: 30px
+        font-weight: 100
+        padding-left: 10%
+        opacity: 0.9
+        +design-color
+    &-p 
+        padding-top: 3%
+
+.btn
+    font-family: 'HammerSmite one', sans-serif
+    font-size: 16px
+    font-weight: bold
+    display: block
+    margin: 0 auto
+    border: 1px solid #00e0d0
+    color: #00e0d0
+    padding: 15px 20px
+    text-transform: uppercase
+    background-color: rgba(0, 0, 0, 0.1)
+    border-radius: 2px
+    &:hover
+        background-color: #00e0d0
+        transition: .5s
+        color: #fff
+//===================Header======================
+.header 
+    background: url(../images/src/main-bg.png) no-repeat
+    background-size: cover
+    min-height: 100vh
+    &__overlay
+        background: url(../images/src/main-bg-overlay.png) no-repeat
+        background-size: cover
+        min-height: 100vh
+    &__wrapper
+        display: flex
+        align-content: space-between
+        flex-direction: column
+        min-height: 100vh
+    &__top-wrapper
+        width: 100%
+    &__main-text
+        justify-content: center
+    &__title
+        font-size: 32px
+        text-transform: capitalize
+        margin-bottom: 35px
+        line-height: 1.5em
+        @media (max-width: 480px)
+            font-size: 25px
+    &__title:after 
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 80px
+        height: 1px
+        background-color: #00e0d0
+        right: 0
+        margin: -17px auto
+        display: block
+        margin-top: 200px
+    &__subtitle       
+        margin-right: 1%
+        @media (max-width: 480px)
+            font-size: 13px
+    &__btn
+        margin-top: 7%
+        
+.nav-bar //Временно
+    &__list
+        display: flex
+        justify-content: space-between
+    &__item
+        a      
+            @media (max-width: 767px)
+                display: none
+            @media (max-height: 400px)
+                display: none           
+            font-size: 13px
+            font-weight: 900
+            color: #fff
+            text-decoration: none
+            text-transform: uppercase
+            &:hover
+                +design-color
+
+.burger
+    @media (max-width: 767px)
+        float: right
+        width: 40px
+        height: 40px
+        background: url(../images/src/burger.svg) no-repeat
+        background-size: contain
+        cursor: pointer
+    &__menu
+        position: absolute
+        top: -1000px
+        &.active
+            position: relative
+            margin-top: 50px
+            height: 90vh
+            background-color: #00e0d0
+            top: 0
+            left: 0
+            opacity: .7
+            transition: .4s
+    &__list
+        cursor: pointer
+        li:hover 
+            background-color: #7c7c7c
+    &__link
+        padding-left: 20px
+        color: #fff
+        font-size: 20px
+        line-height: 40px
+        text-transform: uppercase
+        text-align: center
+        :hover 
+            background-color: #7c7c7c
+//======================Story==========================
+.story
+    padding: 5% 0
+    &__title
+        text-align: left
+    &__subtitle
+        text-align: left
+        padding-top: 5%
+    &__btn 
+        float: left
+        margin-top: 5%
+        background-color: #fff
+
+.big-logo
+    @media (max-width: 768px)
+        padding-bottom: 10%
+    @media (max-width: 576px)   
+        img 
+            width: 200px
+//======================Watch===========================
+.watch
+    background: url(../images/src/watch-bg.png) no-repeat
+    background-size: cover
+    min-height: 70vh
+    @media (max-height: 412px)
+        min-height: 100vh
+    &__overlay
+        background: url(../images/src/watch-bg-overlay.png) no-repeat
+        background-size: cover
+        min-height: 70vh
+        display: flex
+        justify-content: center
+        align-items: center
+        @media (max-height: 412px)
+            min-height: 100vh
+    &__text
+        color: #fff
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 16px
+        padding-top: 15%
+
+.play-block
+    display: flex
+    text-align: center
+
+.popup
+    position: fixed
+    width: 100%
+    height: 100%
+    background-color: rgba(0,0,0,0.8)
+    top: 0
+    left: 0   
+    opacity: 0
+    visibility: hidden
+    &:target
+        opacity: 1
+        visibility: visible
+    &__body
+        min-height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+    &__content
+        background-color: #ffffff2c
+        color: #000
+        padding: 20px
+        position: relative
+        video
+            @media (max-width: 768px)
+                width: 430px
+            @media (max-width: 480px)
+                width: 320px
+            @media (max-width: 360px)
+                width: 250px
+    &__close
+        position: absolute
+        right: 0
+        top: -5px
+        font-size: 30px
+        color: #fff
+        text-decoration: none
+//===================Expertise============================
+.expertise
+    padding: 5% 0
+    &__subtitle
+        font-family: 'Playfair Display', serif
+        padding: 10px
+.card
+    &__item
+        text-align: center
+    &__title
+        font-size: 14px
+        font-weight: 900
+        padding: 20px 0
+    &__subtitle
+        padding-bottom: 50px
+        margin: 0 auto
+        @media (max-width: 992px)
+            width: 60%
+        @media (max-width: 768px)
+            width: 50%
+//=====================Team===============================
+.team
+    background: url(../images/src/team-bg.png) no-repeat
+    background-size: cover
+    &__overlay
+        padding: 5% 0
+        background: url(../images/src/team-bg-overlay.png) no-repeat
+        background-size: cover
+    &__subtitle
+        padding: 30px 0
+        &-line 
+            position: relative
+            padding-bottom: 15px
+.team__subtitle-line:before
+    content: ''
+    display: block
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    width: 50px
+    height: 2px
+    margin: 0 auto
+    background-color: rgba(255,255,255,0.5)
+
+.avatar
+    &__item
+        text-align: center
+        justify-content: center
+        div
+            img
+                @media (max-width: 920px) and (min-width: 768px)
+                    width: 100%
+    &__title
+        font-weight: bold
+        padding-top: 15px
+    &__subtitle
+        font-weight: 100
+        opacity: 0.8
+        position: relative
+        padding-bottom: 30px
+        &:before
+            content: ''
+            position: absolute
+            bottom: 15px
+            left: 0
+            right: 0
+            width: 100%
+            overflow: hidden
+            height: 2px
+            margin: 0 auto
+            background-color: rgba(122, 122, 122, 0.5)
+//=====================Works==================================
+.works
+    padding: 5% 0
+    &__container
+        padding-bottom: 5% 
+        display: flex
+        justify-content: space-between
+    &__title
+        color: #413d4b
+    a
+        color: #413d4b
+        background: url(../images/src/arrow-right-icon.png) top right no-repeat
+        padding-right: 15px
+    &__btn
+        margin-top: 5%
+        background-color: #fff
+.gallery
+    text-align: center
+    &__top
+        display: flex
+        img 
+            width: 16.666%
+    &__bottom
+        display: flex
+        flex-direction: row-reverse
+        img 
+            width: 16.666%
+//=======================Bio============================
+.bio 
+    background: url(../images/src/bio-bg.png) no-repeat
+    background-size: cover
+    text-align: center
+    &__overlay
+        padding: 5%
+        background: url(../images/src/bio-bg-overlay.png) no-repeat
+        background-size: cover
+    &__quotes
+        padding-bottom: 5%
+    &__subtitle
+        line-height: 1.5em
+        font-size: 16px
+        opacity: 0.8
+    &__name
+        padding: 4% 0
+        &-subtitle
+            font-size: 13px
+            opacity: 0.7
+            font-weight: 300
+            padding-top: 10px
+    &__gallery
+        img    
+            @media(max-width: 330px)
+                width: 40px
+                &:nth-child(3)
+                    width: 60px
+//====================Give=================================
+.give
+    padding: 5% 0
+    text-align: center
+    &__title
+        padding: 3% 0
+    &__btn 
+        background-color: #fff
+        padding: 15px 35px
+    input
+        padding: 10px 23px
+        border: 1px solid #e5e5e5
+        margin-bottom: 25px
+        &:last-child
+            height: 200px
+::placeholder
+    font-size: 14px
+    font-weight: 300
+    color: #acabb1
+//=========================Footer========================
+.footer
+    background: url(../images/src/footer-bg.png) no-repeat
+    background-size: cover
+    &__overlay
+        background: url(../images/src/footer-bg-overlay.png) no-repeat
+        background-size: cover
+        padding: 5% 0
+    &__title
+        font-size: 15px
+        font-weight: 900
+        text-transform: uppercase
+        text-align: left
+        @media(max-width: 992px)
+            text-align: center
+    &__subtitle
+        text-align: left
+        color: #fff
+        // @media(max-width: 992px)
+        //     text-align: left
+    &__adress
+        
+    &__mark
+        background: url(../images/src/footer-adress-mark-icon.png) top left no-repeat
+        right: -15px
+        padding-left: 20px
+    &__tel
+        background: url(../images/src/footer-adress-phone-icon.png) top left no-repeat
+        right: -15px
+        padding-left: 20px
+    &__btn
+        background: url(../images/src/footer-btn-paper-icon.png) no-repeat center
+        height: 45px
+        background-color: rgba(255, 255, 255, 0.7)
+        border: 1px solid rgba(255, 255, 255, 0.7)
+        @media(max-width: 570px)
+            width: 100px
+            justify-content: center
+            
+    &__bottom
+        padding-top: 40px
+        text-align: right
+        a 
+            color: #fff 
+            text-decoration: none
+    &__nav
+    &__form
+        justify-content: center
+        margin: 0 auto
+    &-logo
+        &__subtitle
+            text-align: center
+    &-form
+        @media(max-width: 992px)
+            margin: 0 300px
+    &-adress
+        @media(max-width: 992px)
+            margin: 0 300px
+                    
+
+
+    input
+        background-color: rgba(0, 0, 0 ,0.01)
+        border: 1px solid rgba(255, 255, 255, 0.7)
+        height: 45px
+        padding-left: 10px
+
+
+        
+
+
+
+        
+     
+
+
+
+    
